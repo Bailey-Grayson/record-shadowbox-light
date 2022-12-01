@@ -1,0 +1,22 @@
+// function for fun light clock: blue sec, green min, red hour
+void Clock () {
+  // Finally the hour, minute, and second
+//  Serial.print(clockObject.getHour(h12Flag, pmFlag), DEC);
+//  Serial.print(" ");
+//  Serial.print(clockObject.getMinute(), DEC);
+//  Serial.print(" ");
+//  Serial.print(clockObject.getSecond(), DEC);
+
+  delay(1000);
+
+  int neoSec = clockObject.getSecond();
+  int neoMinute = clockObject.getMinute();
+  int neoHour = clockObject.getHour(h12Flag, pmFlag);
+
+  strip.clear();
+
+  strip.setPixelColor(neoHour, 255, 0, 0);
+  strip.setPixelColor (neoSec, 0, 0, 255);
+  strip.setPixelColor(neoMinute, 0, 255, 0);
+  strip.show();
+}
